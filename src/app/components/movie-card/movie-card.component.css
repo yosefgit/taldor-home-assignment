@@ -1,0 +1,18 @@
+div.card .card-body{
+    padding: 0 1rem;
+}
+
+div.card .card-body img {
+    padding: 0;
+}
+
+.delete-button {
+  float: left;
+  margin-top: -1rem;
+}
+
+@media screen and (max-width: 400px){
+    div.card{
+        width: inherit!important;
+    }
+}

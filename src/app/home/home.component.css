@@ -17,20 +17,42 @@
     color: black;
     padding: 16px;
     text-decoration: none;
+    text-align: center;
   }
   
-  .sidebar .sidebar-item:hover{
+  .sidebar .sidebar-item:hover:not(.top){
     background-color: #555;
     color: white;
     cursor: pointer;
   }
   
+  .sidebar .top{
+      background-color: lightgray;
+  }
+
   div.content {
-    margin-left: 200px;
+    margin-right: 200px;
     padding: 1px 16px;
     height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20rem);
+    grid-gap: 1rem;
+    justify-content: space-evenly;
   }
   
+  div.content .card .card-body{
+      padding: 0 1rem;
+  }
+
+  div.content .card .card-body img {
+      padding: 0;
+  }
+
+  .delete-button {
+    float: left;
+    margin-top: -1rem;
+  }
+
   @media screen and (max-width: 700px) {
     .sidebar {
       width: 100%;
@@ -38,12 +60,22 @@
       position: relative;
     }
     .sidebar .sidebar-item {float: right;}
-    div.content {margin-left: 0;}
+    div.content {margin-right: 0;}
   }
   
   @media screen and (max-width: 400px) {
     .sidebar .sidebar-item {
       text-align: center;
       float: none;
+    }
+    div.content {
+        margin-right: 0;
+        display: inherit;
+        grid-template-columns: inherit;
+        grid-gap: inherit;
+        justify-content: inherit;
+    }
+    div.content .card{
+        width:inherit!important
     }
 }

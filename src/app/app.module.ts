@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import { HomeComponent } from './home/home.component';
     declarations: [
         AppComponent,
         LoginComponent,
-        HomeComponent
+        HomeComponent,
+        MovieCardComponent
     ],
     providers: [
 
