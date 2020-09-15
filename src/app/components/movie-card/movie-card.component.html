@@ -1,14 +1,16 @@
 <div class="card mb-4" style="width: 20rem">
     <div class="row card-body">
-        <img class="col-sm-6" width="100"src="https://m.media-amazon.com/images/M/MV5BMzFkM2YwOTQtYzk2Mi00N2VlLWE3NTItN2YwNDg1YmY0ZDNmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_CR0,0,672,1000_AL_.jpg">
+        <img class="col-sm-6" width="100"  (click)="redirect(movie.imdb_link)" src="{{movie.poster_link}}">
         <div class="col-sm-6 pt-4">
             <div class="card-title delete-button">
-                <button type="button" class="close" aria-label="Close">
+                <button type="button" class="close" aria-label="Close" (click)="deleteMovie(movie.id)">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="card-title text-center">Home Alone</div>
-            <div class="card-subtitle mb-2 text-muted text-center">comedy</div>
+            <div class="card-title text-center">
+                <a href="{{movie.imdb_link}}">{{movie.name}}</a>
+            </div>
+            <div class="card-subtitle mb-2 text-muted text-center">{{movie.category}}</div>
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-movie-card',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieCardComponent implements OnInit {
 
-  constructor() { }
+    @Input() movie;
+    @Output()onDeleteEvent: EventEmitter<any> = new EventEmitter();
 
-  ngOnInit(): void {
-  }
+    constructor() { }
 
+    ngOnInit(): void {
+    }
+
+    deleteMovie(id){
+        this.onDeleteEvent.emit(id);
+    }
+
+    redirect(link){
+        location.href = link;
+    }
 }

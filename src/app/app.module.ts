@@ -10,6 +10,9 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { JwtInterceptor } from '@app/core/intercepters/jwt.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NewMovieModalComponent } from './modals/new-movie-modal/new-movie-modal.component';
+import { FilterPipe } from './core/pipes/filter.pipe';
 
 @NgModule({
     imports: [
@@ -17,18 +20,26 @@ import { JwtInterceptor } from '@app/core/intercepters/jwt.interceptor';
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        NgbModule
     ],
     declarations: [
         AppComponent,
         LoginComponent,
         HomeComponent,
-        MovieCardComponent
+        MovieCardComponent,
+        NewMovieModalComponent,
+        FilterPipe
+    ],
+    entryComponents: [
+        NewMovieModalComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [
+        AppComponent
+    ]
 })
 
 export class AppModule { }

@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <h4 class="modal-title text-center" style="margin-left:9rem">הוספת סרט חדש</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="newMovieForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">שם סרט</label>
+            <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">שם סרט הינו שדה חובה</div>
+                <div *ngIf="f.name.errors.maxlength">עד 30 תווים</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="category">קטגוריה</label>
+            <select class="form-control" formControlName="category">
+                <option *ngFor="option of categoryOptions" [value]="option">{{option}}</option>
+            </select>
+            <!-- <input type="text" formControlName="category" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.category.errors }" /> -->
+            <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+                <div *ngIf="f.category.errors.required">קטגוריה הינו שדה חובה</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="imdb_link"> (imdb) לינק לסרט</label>
+            <input type="text" formControlName="imdb_link" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.imdb_link.errors }" />
+            <div *ngIf="submitted && f.imdb_link.errors" class="invalid-feedback">
+                <div *ngIf="f.imdb_link.errors.required">לינק הינו שדה חובה</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="poster_link">לינק לפוסטר</label>
+            <input type="text" formControlName="poster_link" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.poster_link.errors }" />
+            <div *ngIf="submitted && f.poster_link.errors" class="invalid-feedback">
+                <div *ngIf="f.poster_link.errors.required">לינק לפוסטר הינו שדה חובה</div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-outline-dark" (click)="activeModal.close('Close click')">ביטול</button>
+            <button type="submit" [disabled]="loading" class="btn btn-primary ml-5">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                הוסף סרט
+            </button>
+        </div>
+    </form>
+  </div> 
